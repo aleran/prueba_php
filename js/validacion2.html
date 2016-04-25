@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>validacion2</title>
+</head>
+<body>
+	<form action="" name="formulario">
+		<input type="text" name="nombres" placeholder="nombres"><br>
+		<input type="text" name="apellidos" placeholder="apellidos"><br>
+		<input type="email" name="correo" placeholder="correo"><br>
+		<input type="password" name="contraseña" placeholder="contraseña"><br>
+		<input type="submit" value="Enviar">
+	</form>
+	<script>
+		//(function(){
+			
+			var formul = document.formulario,
+			elementos = formul.elements;
+			longElementos = elementos.length-1;
+			var exp= /^[a-zA-Z\s]*$/;
+			
+			var validar =function validar(e){
+				for(i=0; i < longElementos; i++){
+
+					if (elementos[i].type=="text" || elementos[i].type=="email" || elementos[i].type=="password") {
+						if (elementos[i].value.trim()=="") {
+							alert("El campo " + elementos[i].name + " esta vacio");
+							
+						}
+
+					}
+				}
+				e.preventDefault();
+			}
+
+			formul.addEventListener("submit", validar);
+
+		//})();
+	</script>
+</body>
+</html>

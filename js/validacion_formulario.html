@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>validacion_formulario</title>
+</head>
+<body>
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>formularios</title>
+</head>
+<body>
+	<form action="" name="formulario" method="get">
+		<input type="text" name="nombre" maxlength="30"placeholder="Nombre">
+		<br>
+		<input type="radio" name="sexo" value="hombre" id="hombre">Hombre
+		<input type="radio" name="sexo" value="mujer" id="mujer">Mujer
+		<br>
+		<input type="checkbox" name="terminos" id="terminos">Terminos y Condiciones
+		<br><select name="pais" id="pais">
+			<option value="">Selecciona</option>
+			<option value="vanezuela">Venezuela</option>
+			<option value="otro">Otro</option>
+		</select><br>
+		<input type="submit" name="btn" id="btn" value="Enviar">
+
+	</form>
+	<script>
+		
+		(function(){
+			
+			var formulario = document.formulario,
+				//elementos = formulario.elements,
+				boton = document.getElementById("btn");
+				var exp= /^[a-zA-Z\s]*$/;
+				var validar = function validar(e){
+					if (formulario.nombre.value.trim() == "") {
+						alert("completa el campo nombre");
+						e.preventDefault();
+						
+
+					}
+					if (formulario.nombre.value.search(exp)) {
+						alert("se aceptan solo letras");
+						e.preventDefault();
+					};
+
+					
+
+					if(formulario.sexo[0].checked == false && formulario.sexo[1].checked == false){
+						alert("completa el campo sexo");
+						e.preventDefault();
+
+					};
+					if (formulario.terminos.checked==false) {
+						alert("debes aceptar los terminos y condiciones");
+						e.preventDefault();
+
+					};
+					if(formulario.pais[0].selected == true){
+						alert("por favor seleccione pais");
+						e.preventDefault();
+					};
+
+				}
+
+				formulario.addEventListener("submit", validar)
+				//otra forma de validar con input="button"
+				/*var formulario = document.formulario,
+				//elementos = formulario.elements,
+				boton = document.getElementById("btn");
+
+				var validar = function validar(e){
+					if (formulario.nombre.value.trim() == "") {
+						alert("completa el campo nombre");
+						
+					}
+					if(formulario.sexo[0].checked == false && formulario.sexo[1].checked == false){
+						alert("completa el campo sexo");
+						
+
+					}
+					if (formulario.terminos.checked==false) {
+						alert("debes aceptar los terminos y condiciones");
+						
+
+					}
+					if(formulario.pais[0].selected == true){
+						alert("por favor seleccione pais");
+						
+					}
+					else formulario.submit();
+
+				}
+
+				boton.addEventListener("click", validar);*/
+
+		})();
+	</script>
+</body>
+</html>
+	
+</body>
+</html>
